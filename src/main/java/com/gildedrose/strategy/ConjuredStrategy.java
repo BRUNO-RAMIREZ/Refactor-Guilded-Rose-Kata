@@ -6,18 +6,15 @@ import com.gildedrose.model.Item;
  * @author Bruno Ramirez
  */
 public class ConjuredStrategy extends ItemUpdaterStrategy {
+    private static final int QUALITY_DECREASE_RATE = -2;
 
     @Override
-    public void update(Item item) {
-        updateQuality(item, -2);
-        updateSellInDays(item);
-        if (item.sellInDays < 0) {
-            updateQuality(item, -2);
-        }
+    protected void updateItemQuality(Item item) {
+        updateQuality(item, QUALITY_DECREASE_RATE);
     }
 
     @Override
-    protected void updateQuality(Item item, int change) {
-        item.quality = Math.max(0, item.quality + change);
+    protected void handleExpiredItem(Item item) {
+        updateQuality(item, QUALITY_DECREASE_RATE);
     }
 }
