@@ -3,17 +3,26 @@ package com.gildedrose.strategy;
 import com.gildedrose.model.Item;
 
 public class BackstagePassStrategy extends ItemUpdaterStrategy {
+    private static final int QUALITY_INCREASE_RATE_REGULAR = 1;
+    private static final int QUALITY_INCREASE_RATE_MEDIUM = 2;
+    private static final int QUALITY_INCREASE_RATE_HIGH = 3;
+    private static final int QUALITY_INCREASE_THRESHOLD_MEDIUM = 11;
+    private static final int QUALITY_INCREASE_THRESHOLD_HIGH = 6;
 
     @Override
-    public void update(Item item) {
-        updateQuality(item, 1);
-        if (item.sellInDays < 11) updateQuality(item, 1);
-        if (item.sellInDays < 6) updateQuality(item, 1);
+    protected void updateItemQuality(Item item) {
+        int qualityIncrease = getQualityIncreaseRate(item.sellInDays);
+        updateQuality(item, qualityIncrease);
+    }
 
-        updateSellInDays(item);
+    @Override
+    protected void handleExpiredItem(Item item) {
+        item.quality = 0;
+    }
 
-        if (item.sellInDays < 0) {
-            item.quality = 0;
-        }
+    private int getQualityIncreaseRate(int sellInDays) {
+        if (sellInDays < QUALITY_INCREASE_THRESHOLD_HIGH) return QUALITY_INCREASE_RATE_HIGH;
+        if (sellInDays < QUALITY_INCREASE_THRESHOLD_MEDIUM) return QUALITY_INCREASE_RATE_MEDIUM;
+        return QUALITY_INCREASE_RATE_REGULAR;
     }
 }

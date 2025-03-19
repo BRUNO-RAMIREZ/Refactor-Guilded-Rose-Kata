@@ -16,6 +16,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return String.format("%s, %d, %d", this.name, this.sellInDays, this.quality);
+        return String.format("%s, %d, %d", name, sellInDays, quality);
     }
 }

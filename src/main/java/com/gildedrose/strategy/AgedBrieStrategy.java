@@ -3,13 +3,15 @@ package com.gildedrose.strategy;
 import com.gildedrose.model.Item;
 
 public class AgedBrieStrategy extends ItemUpdaterStrategy {
+    private static final int QUALITY_INCREASE_RATE = 1;
 
     @Override
-    public void update(Item item) {
-        updateQuality(item, 1);
-        updateSellInDays(item);
-        if (item.sellInDays < 0) {
-            updateQuality(item, 1);
-        }
+    protected void updateItemQuality(Item item) {
+        updateQuality(item, QUALITY_INCREASE_RATE);
+    }
+
+    @Override
+    protected void handleExpiredItem(Item item) {
+        updateQuality(item, QUALITY_INCREASE_RATE);
     }
 }

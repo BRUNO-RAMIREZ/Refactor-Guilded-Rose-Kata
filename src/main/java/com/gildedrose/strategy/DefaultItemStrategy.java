@@ -3,18 +3,10 @@ package com.gildedrose.strategy;
 import com.gildedrose.model.Item;
 
 public class DefaultItemStrategy extends ItemUpdaterStrategy {
+    private static final int QUALITY_DECREASE_RATE = -1;
 
     @Override
-    public void update(Item item) {
-        updateQuality(item, -1);
-        updateSellInDays(item);
-        if (item.sellInDays < 0) {
-            updateQuality(item, -1);
-        }
-    }
-
-    @Override
-    protected void updateQuality(Item item, int change) {
-        item.quality = Math.max(0, item.quality + change);
+    protected void updateItemQuality(Item item) {
+        updateQuality(item, QUALITY_DECREASE_RATE);
     }
 }
