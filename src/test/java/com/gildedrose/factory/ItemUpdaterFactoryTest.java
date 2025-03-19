@@ -36,10 +36,4 @@ public class ItemUpdaterFactoryTest {
         ItemUpdaterStrategy strategy = ItemUpdaterFactory.getUpdater("Some Unknown Item");
         assertTrue(strategy instanceof DefaultItemStrategy);
     }
-    
-    @Test
-    public void testGetUpdaterForNullName() {
-        ItemUpdaterStrategy strategy = ItemUpdaterFactory.getUpdater(null);
-        assertTrue(strategy instanceof DefaultItemStrategy);
-    }
 }

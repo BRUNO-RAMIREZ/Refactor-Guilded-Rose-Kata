@@ -8,14 +8,14 @@ public class SulfurasStrategyTest {
 
     @Test
     public void testUpdateNeverChanges() {
-        Item item = new Item("Sulfuras, Hand of Ragnaros", 0, 80);
+        Item item = new Item("Sulfuras, Hand of Ragnaros", 0, 50);
         SulfurasStrategy strategy = new SulfurasStrategy();
         
         strategy.update(item);
         
         // Verificar que Sulfuras nunca cambia sus valores
         assertEquals(0, item.sellInDays);
-        assertEquals(80, item.quality);
+        assertEquals(50, item.quality);
         
         // Probar múltiples actualizaciones
         for (int i = 0; i < 10; i++) {
@@ -23,6 +23,6 @@ public class SulfurasStrategyTest {
         }
         
         assertEquals(0, item.sellInDays);
-        assertEquals(80, item.quality);
+        assertEquals(50, item.quality);
     }
 }

@@ -14,7 +14,7 @@ public class BackstagePassStrategyTest {
         strategy.update(item);
         
         assertEquals(14, item.sellInDays);
-        assertEquals(21, item.quality); // +1 regular increase
+        assertEquals(21, item.quality); //+1 regular increase
     }
     
     @Test
@@ -25,7 +25,7 @@ public class BackstagePassStrategyTest {
         strategy.update(item);
         
         assertEquals(9, item.sellInDays);
-        assertEquals(22, item.quality); // +1 regular, +1 for <= 10 days
+        assertEquals(22, item.quality); //+1 regular, +1 for <= 10 days
     }
     
     @Test
@@ -36,7 +36,7 @@ public class BackstagePassStrategyTest {
         strategy.update(item);
         
         assertEquals(4, item.sellInDays);
-        assertEquals(23, item.quality); // +1 regular, +1 for <= 10 days, +1 for <= 5 days
+        assertEquals(23, item.quality); //+1 regular, +1 for <= 10 days, +1 for <= 5 days
     }
     
     @Test
@@ -47,7 +47,7 @@ public class BackstagePassStrategyTest {
         strategy.update(item);
         
         assertEquals(-1, item.sellInDays);
-        assertEquals(0, item.quality); // Quality drops to 0 after concert
+        assertEquals(0, item.quality); //Quality drops to 0 after concert
     }
     
     @Test
@@ -58,6 +58,6 @@ public class BackstagePassStrategyTest {
         strategy.update(item);
         
         assertEquals(4, item.sellInDays);
-        assertEquals(50, item.quality); // Quality should cap at 50 even with multiple increases
+        assertEquals(50, item.quality); //Quality should cap at 50 even with multiple increases
     }
 }
