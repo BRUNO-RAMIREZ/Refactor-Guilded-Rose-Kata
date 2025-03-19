@@ -4,7 +4,6 @@ import com.gildedrose.model.Item;
 
 public class TexttestFixture {
     public static void main(String[] args) {
-        System.out.println("OMGHAI!");
 
         Item[] items = new Item[]{
                 new Item("+5 Dexterity Vest", 10, 20), //

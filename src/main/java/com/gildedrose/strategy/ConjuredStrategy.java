@@ -2,9 +2,6 @@ package com.gildedrose.strategy;
 
 import com.gildedrose.model.Item;
 
-/**
- * @author Bruno Ramirez
- */
 public class ConjuredStrategy extends ItemUpdaterStrategy {
     private static final int QUALITY_DECREASE_RATE = -2;
 

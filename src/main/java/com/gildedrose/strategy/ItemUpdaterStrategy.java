@@ -2,9 +2,6 @@ package com.gildedrose.strategy;
 
 import com.gildedrose.model.Item;
 
-/**
- * @author Bruno Ramirez
- */
 public abstract class ItemUpdaterStrategy {
     private static final int DEFAULT_QUALITY_DECREASE = -1;
     private static final int MAX_QUALITY = 50;

@@ -2,9 +2,6 @@ package com.gildedrose.strategy;
 
 import com.gildedrose.model.Item;
 
-/**
- * @author Bruno Ramirez
- */
 public class BackstagePassStrategy extends ItemUpdaterStrategy {
     private static final int QUALITY_INCREASE_RATE_REGULAR = 1;
     private static final int QUALITY_INCREASE_RATE_MEDIUM = 2;

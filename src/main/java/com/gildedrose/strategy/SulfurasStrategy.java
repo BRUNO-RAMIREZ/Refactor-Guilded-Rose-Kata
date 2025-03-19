@@ -2,9 +2,6 @@ package com.gildedrose.strategy;
 
 import com.gildedrose.model.Item;
 
-/**
- * @author Bruno Ramirez
- */
 public class SulfurasStrategy extends ItemUpdaterStrategy {
     private static final int QUALITY_INCREASE_RATE = 0;
 
