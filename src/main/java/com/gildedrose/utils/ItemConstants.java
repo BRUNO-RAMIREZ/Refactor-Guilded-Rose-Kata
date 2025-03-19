@@ -1,8 +1,5 @@
 package com.gildedrose.utils;
 
-/**
- * @author Bruno Ramirez
- */
 public class ItemConstants {
     public static final int MAX_QUALITY = 50;
     public static final int MIN_QUALITY = 0;

@@ -2,10 +2,6 @@ package com.gildedrose.factory;
 
 import com.gildedrose.strategy.*;
 
-
-/**
- * @author Bruno Ramirez
- */
 public class ItemUpdaterFactory {
     public static ItemUpdaterStrategy getUpdater(String itemName) {
         switch (itemName) {

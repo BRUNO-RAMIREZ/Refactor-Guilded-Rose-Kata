@@ -19,20 +19,20 @@ public class GildedRoseUpdaterTest {
         GildedRoseUpdater app = new GildedRoseUpdater(items);
         app.updateQuality();
         
-        // Verificar que cada ítem se actualizó según su estrategia
-        assertEquals(1, items[0].quality); // Aged Brie aumenta calidad
+        // Verify that the quality and sellInDays of each item is updated correctly
+        assertEquals(1, items[0].quality); // Aged Brie increases in quality
         assertEquals(1, items[0].sellInDays);
         
-        assertEquals(23, items[1].quality); // Backstage pass aumenta más si está cerca de sellIn
+        assertEquals(23, items[1].quality); // Backstage pass increases more as sellInDays approaches
         assertEquals(4, items[1].sellInDays);
         
-        assertEquals(80, items[2].quality); // Sulfuras no cambia
+        assertEquals(80, items[2].quality); // Sulfuras does not change
         assertEquals(0, items[2].sellInDays);
         
-        assertEquals(4, items[3].quality); // Conjured pierde 2 de calidad
+        assertEquals(4, items[3].quality); // Conjured items lose 2 in quality
         assertEquals(2, items[3].sellInDays);
         
-        assertEquals(9, items[4].quality); // Item estándar pierde 1 de calidad
+        assertEquals(9, items[4].quality); // Standard item loses 1 in quality
         assertEquals(4, items[4].sellInDays);
     }
     
@@ -41,7 +41,7 @@ public class GildedRoseUpdaterTest {
         Item[] items = new Item[0];
         GildedRoseUpdater app = new GildedRoseUpdater(items);
         
-        // Verificar que no hay error al actualizar un array vacío
+        // Verify that there is no error when updating an empty array
         assertDoesNotThrow(() -> app.updateQuality());
     }
 }

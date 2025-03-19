@@ -2,9 +2,6 @@ package com.gildedrose.strategy;
 
 import com.gildedrose.model.Item;
 
-/**
- * @author Bruno Ramirez
- */
 public class BackstagePassStrategy extends ItemUpdaterStrategy {
 
     @Override
