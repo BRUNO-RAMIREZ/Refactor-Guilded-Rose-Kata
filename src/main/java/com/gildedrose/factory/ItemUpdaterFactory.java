@@ -1,20 +1,20 @@
 package com.gildedrose.factory;
 
+import java.util.Map;
+import java.util.HashMap;
 import com.gildedrose.strategy.*;
 
 public class ItemUpdaterFactory {
+    private static final Map<String, ItemUpdaterStrategy> strategyMap = new HashMap<>();
+    
+    static {
+        strategyMap.put("Aged Brie", new AgedBrieStrategy());
+        strategyMap.put("Backstage passes to a TAFKAL80ETC concert", new BackstagePassStrategy());
+        strategyMap.put("Sulfuras, Hand of Ragnaros", new SulfurasStrategy());
+        strategyMap.put("Conjured Mana Cake", new ConjuredStrategy());
+    }
+    
     public static ItemUpdaterStrategy getUpdater(String itemName) {
-        switch (itemName) {
-            case "Aged Brie":
-                return new AgedBrieStrategy();
-            case "Backstage passes to a TAFKAL80ETC concert":
-                return new BackstagePassStrategy();
-            case "Sulfuras, Hand of Ragnaros":
-                return new SulfurasStrategy();
-            case "Conjured Mana Cake":
-                return new ConjuredStrategy();
-            default:
-                return new DefaultItemStrategy();
-        }
+        return strategyMap.getOrDefault(itemName, new DefaultItemStrategy());
     }
 }
