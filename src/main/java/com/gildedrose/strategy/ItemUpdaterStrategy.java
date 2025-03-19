@@ -22,8 +22,8 @@ public abstract class ItemUpdaterStrategy {
         updateQuality(item, DEFAULT_QUALITY_DECREASE);
     }
 
-    protected void updateQuality(Item item, int change) {
-        item.quality = Math.max(MIN_QUALITY, Math.min(item.quality + change, MAX_QUALITY));
+    protected void updateQuality(Item item, int qualityToApply) {
+        item.quality = Math.max(MIN_QUALITY, Math.min(item.quality + qualityToApply, MAX_QUALITY));
     }
 
     private void updateItemSellInDays(Item item) {
